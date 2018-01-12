@@ -1,9 +1,17 @@
-# JSONQuery
-Easier to use Gson to parse json.
+package me.kagura;
 
-### Example：
-~~~java
-public void Test() throws TypeNotMismatchException, FieldNotExistException {
+
+import me.kagura.exception.FieldNotExistException;
+import me.kagura.exception.TypeNotMismatchException;
+import org.junit.Test;
+
+/**
+ * Unit test for JSONQuery.
+ */
+public class JSONQueryTest {
+
+    @Test
+    public void Test() throws TypeNotMismatchException, FieldNotExistException {
         String json = "" +
                 "{\n" +
                 "  \"errno\": 0,\n" +
@@ -59,20 +67,4 @@ public void Test() throws TypeNotMismatchException, FieldNotExistException {
         jsonResult = JSONQuery.select(data, "comment_list");
 
     }
-~~~
-
-### Getting started：
-~~~xml
-<dependency>
-  <!-- JSONQuery @ https://JSONQuery.kagura.me -->
-  <groupId>me.kagura</groupId>
-  <artifactId>JSONQuery</artifactId>
-  <version>0.2.1</version>
-</dependency>
-~~~
-
-### Thanks:
-Google Gson!
-
-### Open source
-JSONQuery is an open source project distributed under the liberal [MIT license](https://github.com/KingFalse/JSONQuery/blob/master/LICENSE). The source code is available at [GitHub](https://github.com/KingFalse/JSONQuery).
+}
