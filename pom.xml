@@ -182,7 +182,10 @@
             <resource>
                 <directory>./</directory>
                 <targetPath>META-INF/</targetPath>
-                <filtering>false</filtering>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
                 <includes>
                     <include>LICENSE</include>
                     <include>CHANGES</include>
