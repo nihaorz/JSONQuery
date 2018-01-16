@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  * The core public access point to the JSONQuery functionality.
  *
  * @author 鹞之神乐
- * @version 0.2.1
+ * @version 0.2.3
  */
 public class JSONQuery {
 

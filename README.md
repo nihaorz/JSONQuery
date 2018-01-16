@@ -1,4 +1,6 @@
-# JSONQuery
+# JSONQuery 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/me.kagura/JSONQuery/badge.svg)](https://maven-badges.herokuapp.com/maven-central/me.kagura/JSONQuery)
+
 Easier to use Gson to parse json.
 
 ### Example：
@@ -67,7 +69,7 @@ public void Test() throws TypeNotMismatchException, FieldNotExistException {
   <!-- JSONQuery @ https://JSONQuery.kagura.me -->
   <groupId>me.kagura</groupId>
   <artifactId>JSONQuery</artifactId>
-  <version>0.2.1</version>
+  <version>0.2.3</version>
 </dependency>
 ~~~
 
