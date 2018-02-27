@@ -1,29 +1,27 @@
 package me.kagura;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import me.kagura.exception.FieldNotExistException;
 import me.kagura.exception.TypeNotMismatchException;
 
+import java.lang.reflect.Type;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * The core public access point to the JSONQuery functionality.
+ * 核心公共入口
  *
  * @author 鹞之神乐
- * @version 0.2.3
+ * @version 0.2.4
  */
 public class JSONQuery {
 
     /**
-     * Find elements matching selector.
+     * 返回表达式匹配到的结果
      *
-     * @param jsonStr    JsonString root element to descend intos
-     * @param expression selector
-     * @return matching elements, empty if none
+     * @param jsonStr    需要解析的JSON字符串
+     * @param expression 表达式
+     * @return 返回表达式匹配到的结果，如果表达式为空则将jsonStr转换成JsonResult返回
      * @throws TypeNotMismatchException,FieldNotExistException
      */
     public static JsonResult select(String jsonStr, String expression) throws TypeNotMismatchException, FieldNotExistException {
@@ -31,18 +29,18 @@ public class JSONQuery {
     }
 
     /**
-     * Find elements matching selector.
+     * 返回表达式匹配到的结果
      *
-     * @param jsonElement root element to descend intos
-     * @param expression  selector
-     * @return matching elements, empty if none
+     * @param jsonElement JsonObject/JsonArray/JsonResult/JsonElement
+     * @param expression  表达式
+     * @return 返回表达式匹配到的结果，如果表达式为空返回将原jsonElement包装后的JsonResult
      * @throws TypeNotMismatchException,FieldNotExistException
      */
     public static <T extends JsonElement> JsonResult select(T jsonElement, String expression) throws TypeNotMismatchException, FieldNotExistException {
-        expression = expression.trim();
-        if (expression.equals("") || expression == null) {
+        if (expression == null || expression.equals("")) {
             return new JsonResult(jsonElement);
         }
+        expression = expression.trim();
         JsonElement tempJsonElement = jsonElement.deepCopy();
         String[] split = expression.split(">");
         for (int i = 0; i < split.length; i++) {
@@ -96,6 +94,62 @@ public class JSONQuery {
 
         }
         return new JsonResult(tempJsonElement);
+    }
+
+    /**
+     * 返回表达式匹配到的结果并尝试转换为期待的类型
+     *
+     * @param jsonElement JsonObject/JsonArray/JsonResult/JsonElement
+     * @param expression  表达式
+     * @param classOfT    期望的结果类型
+     * @return 返回表达式匹配到的结果并尝试转换为期待的类型
+     * @throws TypeNotMismatchException
+     * @throws FieldNotExistException
+     */
+    public static <T extends JsonElement, S> S select(T jsonElement, String expression, Class<S> classOfT) throws TypeNotMismatchException, FieldNotExistException {
+        return new Gson().fromJson(select(jsonElement, expression).getJsonElement(), classOfT);
+    }
+
+    /**
+     * 返回表达式匹配到的结果并尝试转换为期待的类型
+     *
+     * @param jsonStr    需要解析的JSON字符串
+     * @param expression 表达式
+     * @param classOfT   期望的结果类型
+     * @return 返回表达式匹配到的结果并尝试转换为期待的类型
+     * @throws TypeNotMismatchException
+     * @throws FieldNotExistException
+     */
+    public static <S> S select(String jsonStr, String expression, Class<S> classOfT) throws TypeNotMismatchException, FieldNotExistException {
+        return new Gson().fromJson(select(jsonStr, expression).getJsonElement(), classOfT);
+    }
+
+    /**
+     * 返回表达式匹配到的结果并尝试转换为期待的Type
+     *
+     * @param jsonElement JsonObject/JsonArray/JsonResult/JsonElement
+     * @param expression  表达式
+     * @param typeOfT     期望的结果类型Type
+     * @return 返回表达式匹配到的结果并尝试转换为期待的Type
+     * @throws TypeNotMismatchException
+     * @throws FieldNotExistException
+     */
+    public static <T extends JsonElement, S> S select(T jsonElement, String expression, Type typeOfT) throws TypeNotMismatchException, FieldNotExistException {
+        return new Gson().fromJson(select(jsonElement, expression).getJsonElement(), typeOfT);
+    }
+
+    /**
+     * 返回表达式匹配到的结果并尝试转换为期待的Type
+     *
+     * @param jsonStr    需要解析的JSON字符串
+     * @param expression 表达式
+     * @param typeOfT    期望的结果Type
+     * @return 返回表达式匹配到的结果并尝试转换为期待的Type
+     * @throws TypeNotMismatchException
+     * @throws FieldNotExistException
+     */
+    public static <S> S select(String jsonStr, String expression, Type typeOfT) throws TypeNotMismatchException, FieldNotExistException {
+        return new Gson().fromJson(select(jsonStr, expression).getJsonElement(), typeOfT);
     }
 
 }

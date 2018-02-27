@@ -7,7 +7,7 @@ import java.math.BigInteger;
 
 /**
  * @author 鹞之神乐
- * @version 0.2.3
+ * @version 0.2.4
  */
 public class JsonResult extends JsonElement {
 
@@ -22,7 +22,7 @@ public class JsonResult extends JsonElement {
     }
 
     public JsonElement deepCopy() {
-        return jsonElement;
+        return jsonElement.deepCopy();
     }
 
     public boolean isJsonArray() {

@@ -4,7 +4,7 @@
 
     <groupId>me.kagura</groupId>
     <artifactId>JSONQuery</artifactId>
-    <version>0.2.3</version>
+    <version>0.2.4</version>
     <packaging>jar</packaging>
 
     <parent>
@@ -45,7 +45,7 @@
         <connection>scm:git:git@github.com:KingFalse/JSONQuery.git</connection>
         <developerConnection>scm:git:git@github.com:KingFalse/JSONQuery.git</developerConnection>
         <url>git@github.com:KingFalse/JSONQuery.git</url>
-        <tag>JSONQuery-0.2.3</tag>
+        <tag>JSONQuery-0.2.4</tag>
     </scm>
 
     <properties>
@@ -110,7 +110,7 @@
                 <configuration>
                     <additionalparam>-Xdoclint:none</additionalparam>
                     <encoding>UTF-8</encoding>
-                    <doctitle>JSONQuery 0.2.3</doctitle>
+                    <doctitle>JSONQuery 0.2.4</doctitle>
                     <locale>en_US</locale>
                 </configuration>
                 <executions>
@@ -182,10 +182,7 @@
             <resource>
                 <directory>./</directory>
                 <targetPath>META-INF/</targetPath>
-                <filtering>true</filtering>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
+                <filtering>false</filtering>
                 <includes>
                     <include>LICENSE</include>
                     <include>CHANGES</include>
