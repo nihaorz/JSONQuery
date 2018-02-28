@@ -7,7 +7,7 @@ import java.math.BigInteger;
 
 /**
  * @author 鹞之神乐
- * @version 0.2.4
+ * @version 0.2.5
  */
 public class JsonResult extends JsonElement {
 

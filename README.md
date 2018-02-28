@@ -5,7 +5,8 @@ Easier to use Gson to parse json.
 
 ### Example：
 ~~~java
-public void Test() throws TypeNotMismatchException, FieldNotExistException {
+    @Test
+    public void Test() throws TypeNotMismatchException, FieldNotExistException {
         String json = "" +
                 "{\n" +
                 "  \"errno\": 0,\n" +
@@ -13,19 +14,19 @@ public void Test() throws TypeNotMismatchException, FieldNotExistException {
                 "  \"user\": \"{\\\"user_id\\\":643361255,\\\"user_name\\\":\\\"鹞之神乐\\\",\\\"user_sex\\\":1,\\\"user_status\\\":1}\",\n" +
                 "  \"comment_info\": [\n" +
                 "    {\n" +
-                "      \"thread_id\": \"5504460056\",\n" +
-                "      \"post_id\": \"116776960983\",\n" +
-                "      \"comment_id\": \"116857893053\"\n" +
+                "      \"tid\": \"5504460056\",\n" +
+                "      \"pid\": \"116776960983\",\n" +
+                "      \"cid\": \"116857893053\"\n" +
                 "    },\n" +
                 "    {\n" +
-                "      \"thread_id\": \"5504460056\",\n" +
-                "      \"post_id\": \"116776960983\",\n" +
-                "      \"comment_id\": \"116858057626\"\n" +
+                "      \"tid\": \"5504460056\",\n" +
+                "      \"pid\": \"116776960983\",\n" +
+                "      \"cid\": \"116858057626\"\n" +
                 "    },\n" +
                 "    {\n" +
-                "      \"thread_id\": \"5504460056\",\n" +
-                "      \"post_id\": \"116776960983\",\n" +
-                "      \"comment_id\": \"116880757453\"\n" +
+                "      \"tid\": \"5504460056\",\n" +
+                "      \"pid\": \"116776960983\",\n" +
+                "      \"cid\": \"116880757453\"\n" +
                 "    }\n" +
                 "  ],\n" +
                 "  \"data\": {\n" +
@@ -59,7 +60,18 @@ public void Test() throws TypeNotMismatchException, FieldNotExistException {
         //jsonResult作为参数替代json字符串
         JsonResult data = JSONQuery.select(json, "data");
         jsonResult = JSONQuery.select(data, "comment_list");
-
+        //将json字符串转换为JsonResult
+        jsonResult = JSONQuery.select(json, "");
+        jsonResult = JSONQuery.select(json, null);      
+        
+        // v0.2.5新增
+        //将选择结果反序列化为普通对象
+        Post post = JSONQuery.select(json, "comment_info > [2]", Post.class);
+        //将选择结果反序列化为普通对象数组
+        Post[] postArray = JSONQuery.select(json, "comment_info", Post[].class);
+        //将选择结果反射为泛型类型List<Post>
+        Type type = new TypeToken<List<Post>>() {}.getType();
+        List<Post> postList = JSONQuery.select(json, "comment_info", type);
     }
 ~~~
 
@@ -69,7 +81,7 @@ public void Test() throws TypeNotMismatchException, FieldNotExistException {
   <!-- JSONQuery @ https://JSONQuery.kagura.me -->
   <groupId>me.kagura</groupId>
   <artifactId>JSONQuery</artifactId>
-  <version>0.2.3</version>
+  <version>0.2.5</version>
 </dependency>
 ~~~
 

@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * 核心公共入口
  *
  * @author 鹞之神乐
- * @version 0.2.4
+ * @version 0.2.5
  */
 public class JSONQuery {
 

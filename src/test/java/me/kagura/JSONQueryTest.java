@@ -73,7 +73,7 @@ public class JSONQueryTest {
         jsonResult = JSONQuery.select(json, "");
         jsonResult = JSONQuery.select(json, null);
 
-        // v0.2.4新增
+        // v0.2.5新增
         //将选择结果反序列化为普通对象
         Post post = JSONQuery.select(json, "comment_info > [2]", Post.class);
         //将选择结果反序列化为普通对象数组
@@ -81,7 +81,6 @@ public class JSONQueryTest {
         //将选择结果反射为泛型类型List<Post>
         Type type = new TypeToken<List<Post>>() {}.getType();
         List<Post> postList = JSONQuery.select(json, "comment_info", type);
-
     }
 
 }
