@@ -89,7 +89,8 @@ Easier to use Gson to parse json.
 Google Gson!
 
 ### Git mirror：
-GitHub&nbsp;:&nbsp;[https://github.com/KingFalse/JSONQuery](https://github.com/KingFalse/JSONQuery)
+GitHub&nbsp;:&nbsp;[https://github.com/KingFalse/JSONQuery](https://github.com/KingFalse/JSONQuery)    
+
 GitEE&nbsp;&nbsp;:&nbsp;[https://gitee.com/Kagura/JSONQuery](https://gitee.com/Kagura/JSONQuery)
 
 ### Open source
