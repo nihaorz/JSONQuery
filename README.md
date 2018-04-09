@@ -88,5 +88,10 @@ Easier to use Gson to parse json.
 ### Thanks:
 Google Gson!
 
+### Git mirror：
+GitHub&nbsp;:&nbsp;[https://github.com/KingFalse/JSONQuery](https://github.com/KingFalse/JSONQuery)    
+
+GitEE&nbsp;&nbsp;:&nbsp;[https://gitee.com/Kagura/JSONQuery](https://gitee.com/Kagura/JSONQuery)
+
 ### Open source
 JSONQuery is an open source project distributed under the liberal [MIT license](https://github.com/KingFalse/JSONQuery/blob/master/LICENSE). The source code is available at [GitHub](https://github.com/KingFalse/JSONQuery).
