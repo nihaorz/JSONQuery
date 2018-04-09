@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * 核心公共入口
  *
  * @author 鹞之神乐
- * @version 0.2.5
+ * @version 0.2.6
  */
 public class JSONQuery {
 
@@ -53,7 +53,7 @@ public class JSONQuery {
                 Matcher matcher = Pattern.compile("\\[(-?\\d+)\\]").matcher(tempKey.trim());
                 matcher.find();
                 int index = Integer.parseInt(matcher.group(1));
-                tempJsonElement = jsonArray.get(index > 0 ? index : jsonArray.size() + index);
+                tempJsonElement = jsonArray.get(index >= 0 ? index : jsonArray.size() + index);
             } else if (tempKey.trim().matches("\\[[\\s\\S]+\\]")) {
                 if (!tempJsonElement.isJsonObject()) {
                     throw new TypeNotMismatchException("JsonObject", tempJsonElement);

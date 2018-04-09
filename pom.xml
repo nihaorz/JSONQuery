@@ -4,7 +4,7 @@
 
     <groupId>me.kagura</groupId>
     <artifactId>JSONQuery</artifactId>
-    <version>0.2.5</version>
+    <version>0.2.6</version>
     <packaging>jar</packaging>
 
     <parent>
@@ -110,7 +110,7 @@
                 <configuration>
                     <additionalparam>-Xdoclint:none</additionalparam>
                     <encoding>UTF-8</encoding>
-                    <doctitle>JSONQuery 0.2.5</doctitle>
+                    <doctitle>JSONQuery 0.2.6</doctitle>
                     <locale>en_US</locale>
                 </configuration>
                 <executions>
