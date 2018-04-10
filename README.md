@@ -81,12 +81,15 @@ Easier to use Gson to parse json.
   <!-- JSONQuery @ https://JSONQuery.kagura.me -->
   <groupId>me.kagura</groupId>
   <artifactId>JSONQuery</artifactId>
-  <version>0.2.5</version>
+  <version>0.2.6</version>
 </dependency>
 ~~~
 
 ### Thanks:
 Google Gson!
+
+### Example web project:
+[https://github.com/KingFalse/JSONQueryController](https://github.com/KingFalse/JSONQueryController)
 
 ### Git mirror：
 GitHub&nbsp;:&nbsp;[https://github.com/KingFalse/JSONQuery](https://github.com/KingFalse/JSONQuery)    
